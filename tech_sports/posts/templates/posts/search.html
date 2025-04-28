@@ -1,0 +1,18 @@
+{% extends "posts/base.html" %}
+
+
+{% block title %} DETAIL-VIEW {% endblock %}
+
+
+{% block content %}
+    <ul>
+            <li>Title: {{ posts.title }}</li>
+            <li>Author Name: {{posts.author}}</li>
+
+            <br>
+            <li>Content:{{posts.content}}</li>
+            <!-- <li>Date of creation = {{posts.created_at.date}}</li> -->
+            <li>Date of creation = {{posts.created_at|date:"d M Y"}}</li>           
+    </ul>
+
+{% endblock %}

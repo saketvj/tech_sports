@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>{% block title %} HELLOOOOOO {% endblock %}</title>
+  <head> </head>
+  <body>
+    <h2>Posts</h2>
+    <form action="{% url 'post_search' %}" method = GET>
+      <input type="text" name = 'q'/>
+      <input type="submit" />
+    </form>
+
+    {% block content %} This will be replaced... {% endblock %}
+  </body>
+</html>

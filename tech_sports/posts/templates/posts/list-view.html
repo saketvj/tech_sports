@@ -1,0 +1,21 @@
+{% extends "posts/base.html" %}
+
+{% block title %} LIST-VIEW {% endblock %}
+
+{% block content %}
+
+    <ul>
+        {% for post in posts %}
+            <li><a href = "{% url 'post_detail' post.id %}"> {{ post.title }}</a></li>
+            <li>
+                Tags: ||
+                {% for tags in post.tags.all%}
+                <a href=""> {{tags}}</a>
+                || 
+                {% endfor %}
+            </li>
+            
+        {% endfor %}
+    </ul>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "posts/base.html" %}
+
+{% block content %}
+
+{% if not request.user.is_authenticated %}
+<form method=POST>
+    {% if error %}
+
+    <div style="color: red; font-size: large;",>{{error}}</div>
+
+    {%  endif %}
+
+    {% csrf_token %}    
+    <input type="text" name ="username" placeholder="username">
+    <input type="password" name = "password" placeholder="password">
+    <button type="submit">Login</button>
+</form>
+
+{% else %}
+    <p>You are already logged in. </p>
+    <a href="/logout">Logout</a>
+{% endif %}
+
+
+{% endblock %}

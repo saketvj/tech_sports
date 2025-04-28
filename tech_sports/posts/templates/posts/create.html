@@ -1,0 +1,21 @@
+{% extends "posts/base.html" %}
+
+{% block content %}
+HELLO
+{% if not created %}
+    <form action = "{% url 'post_creation' %}" method= POST>
+        {% csrf_token %}
+       {{form}}
+            <button type=" submit">Create Post</button>
+        </div>
+    </form>
+{% else %}
+    <div>
+        
+        <a href = "{% url 'post_detail' post.id %}"> {{ post.title }}</a>
+
+    </div>
+
+    {% endif %}
+
+{% endblock %}
