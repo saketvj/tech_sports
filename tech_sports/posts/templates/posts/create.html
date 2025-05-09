@@ -1,13 +1,15 @@
 {% extends "posts/base.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
-HELLO
+
+<div class = "w-100 ">
 {% if not created %}
-    <form action = "{% url 'post_creation' %}" method= POST>
+    <form  action = "{% url 'post_creation' %}" method= POST>
         {% csrf_token %}
-       {{form}}
+
+       <!-- {{form.as_p}} -->
             <button type=" submit">Create Post</button>
-        </div>
+        {% crispy form %}</div>
     </form>
 {% else %}
     <div>
@@ -17,5 +19,9 @@ HELLO
     </div>
 
     {% endif %}
+
+
+
+</div>
 
 {% endblock %}

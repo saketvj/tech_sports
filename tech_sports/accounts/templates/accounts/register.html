@@ -1,0 +1,38 @@
+{% extends "posts/base.html" %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class = 'w-100 '>
+
+<form   method= "POST">
+        {% csrf_token %}
+       <!-- {{form|crispy}} -->
+       <div class="d-flex justify-content-center align-items-center" style="min-height: 50vh;">
+    {% crispy form %}
+</div>
+        <!-- {% if form.errors %}
+        <ul class="errorlist">
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul> -->
+    {% endif %}
+    
+            <!-- <button type=" submit">Register</button> -->
+        </div>
+    </form>
+
+
+
+</div>
+
+
+
+
+{% endblock %}
